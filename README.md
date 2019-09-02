@@ -77,6 +77,24 @@ and
 npm run watch:twee
 ```
 
+## Changing the default story format
+The default story format is Harlowe 3. If you would like to change it, simply edit ```package.json``` and in the ```config``` section change the value of ```format```. Currently it looks like this:
+```
+  "config": {
+    "format": "harlowe-3"
+  }
+```, 
+
+Check the contents of ```~/.storyformats``` for the names of the other supported formats:
+
+```
+$ ls ~/.storyformats
+harlowe-1	harlowe-3	snowman-1	sugarcube-2
+harlowe-2	paperthin-1	sugarcube-1
+```
+
+Also, if you want to install another format that doesn't ship with tweego, that's the place to put it.
+
 ## Project structure and build process
 The structure and build process were inspired by and based upon [tweego-setup](https://github.com/ChapelR/tweego-setup) by Chapel.
 

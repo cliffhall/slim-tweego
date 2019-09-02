@@ -77,13 +77,13 @@ and
 npm run watch:twee
 ```
 
-## Changing the default story format
+## CHANGE DEFAULT STORY FORMAT
 The default story format is Harlowe 3. If you would like to change it, simply edit ```package.json``` and in the ```config``` section change the value of ```format```. Currently it looks like this:
 ```
   "config": {
     "format": "harlowe-3"
   }
-```, 
+``` 
 
 Check the contents of ```~/.storyformats``` for the names of the other supported formats:
 

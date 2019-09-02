@@ -1,7 +1,7 @@
 {
-  "name": "mars-colony",
+  "name": "slim-tweego",
   "version": "1.0.0",
-  "description": "Run a colony on the red planet. A Twine game",
+  "description": "A streamlined tweego project skeleton.",
   "main": "./dist/index.html",
   "config": {
     "format": "harlowe-3"
@@ -44,15 +44,14 @@
     "gulp-jshint": "^2.1.0",
     "gulp-noop": "^1.0.0",
     "gulp-uglify": "^3.0.2",
-    "jshint": "^2.10.2",
-    "opn-cli": "^3.1.0"
+    "jshint": "^2.10.2"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cliffhall/mars-colony.git"
+    "url": "git+https://github.com/cliffhall/slim-tweego.git"
   },
   "bugs": {
-    "url": "https://github.com/cliffhall/mars-colony/issues"
+    "url": "https://github.com/cliffhall/slim-tweego/issues"
   },
-  "homepage": "https://github.com/cliffhall/mars-colony#readme"
+  "homepage": "https://github.com/cliffhall/slim-tweego#readme"
 }

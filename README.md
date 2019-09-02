@@ -47,7 +47,7 @@ Copy the following line into the "StoryData" special passage's JSON block (at th
 
 ```
 
-In order to make use of the generated ID (**don't quote the one above, it's for demonstration purposes only**), copy the ```"ifid": "..."``` line that was output the compiler and add it to the ```StoryData``` section  in ```project/twee/story.twee``` like this:
+In order to make use of the generated ID (**don't quote the one above, it's for demonstration purposes only**), copy the ```"ifid": "..."``` line that was output by the compiler and add it to the ```StoryData``` section  in ```project/twee/story.twee``` like this:
 
 ```
 :: StoryData

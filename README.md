@@ -62,7 +62,6 @@ Then run the build again:
 npm run build-once
 ```
 
-
 ### Test the output
 Open ```dist/index.html``` in your browser of choice
 
@@ -79,12 +78,11 @@ npm run watch:twee
 ```
 
 ## Project structure and build process
-You might want to fiddle with the source code of this game, contribute to it, or use its skeleton as a basis for your own project. So, it's worth describing how things work and where things go here.
-
-The structure and build process were  inspired by and based upon [tweego-setup](https://github.com/ChapelR/tweego-setup) by Chapel.
+The structure and build process were inspired by and based upon [tweego-setup](https://github.com/ChapelR/tweego-setup) by Chapel.
 
 That said, a *lot* of changes have been made.
-* It does not have batch files for windows (the above project can help with that).
+* It is Mac and Linux friendly.
+* It does not have batch files for windows (the above project can help with that). Essentially the batch files were just helpers for running npm scripts, which if you're doing things in a modern IDE like Webstorm, you can launch automatically with a click anyway
 * Folders have been moved around, renamed, or removed altogether in the interest of streamlining and clarity.
 * Configuration of gulp (previously ```config.json```) has been moved inside ```gulpfile.js```. Since it wasn't being used for anything else, there was no need to arbitrarily separate the two. 
 * Support is added to start gulp and tweego in watch mode, so you can just edit your ```.css```, ```.js```, and ```.twee``` files at will and it will automagically recompile everytime you save.

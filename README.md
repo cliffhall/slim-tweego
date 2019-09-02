@@ -95,7 +95,7 @@ harlowe-2	paperthin-1	sugarcube-1
 
 Also, if you want to install another format that doesn't ship with tweego, that's the place to put it.
 
-## Project structure and build process
+## PROJECT STRUCTURE / BUILD PROCESS
 The structure and build process were inspired by and based upon [tweego-setup](https://github.com/ChapelR/tweego-setup) by Chapel.
 
 That said, a *lot* of changes have been made.

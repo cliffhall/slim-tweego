@@ -2,3 +2,4 @@
 /node_modules
 /project/modules/*.css
 /project/modules/*.js
+.idea/

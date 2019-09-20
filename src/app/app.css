@@ -1,8 +1,19 @@
-/* Custom App CSS */
-body, tw-story
+/*
+
+Custom App CSS
+
+To use CSS instead of SCSS:
+
+ 1) Add any number of .css files in this folder, or just use this one
+ 2) In gulpfile.js, set CFG.CSS.SASS to false
+ 3) Files in this folder ending with .scss ignored
+ 4) Files in this folder ending with .css will be compiled and minified to project/modules/app.min.css
+
+*/
+body
 {
     background: white;
     color: black;
-    font-family: "Palatino";
+    font-family: Palatino, sans-serif;
     font-size: 18px;
 }

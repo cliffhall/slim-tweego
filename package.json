@@ -4,7 +4,7 @@
   "description": "A streamlined tweego project skeleton.",
   "main": "./dist/index.html",
   "config": {
-    "format": "harlowe-3"
+    "format": "sugarcube-2"
   },
   "scripts": {
     "build-once": "gulp build && tweego -f $npm_package_config_format -o dist/index.html --head=src/head-content.html project",
@@ -43,8 +43,10 @@
     "gulp-csslint": "^1.0.1",
     "gulp-jshint": "^2.1.0",
     "gulp-noop": "^1.0.0",
+    "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
-    "jshint": "^2.10.2"
+    "jshint": "^2.10.2",
+    "node-sass": "^4.12.0"
   },
   "repository": {
     "type": "git",

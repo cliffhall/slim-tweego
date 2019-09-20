@@ -1,2 +1,2 @@
 // Custom App JS
-let test = 444;
+let testvar = 444;

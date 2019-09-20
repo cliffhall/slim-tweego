@@ -10,6 +10,8 @@ const autoprefix = require('gulp-autoprefixer');
 const jshint     = require('gulp-jshint');
 const csslint    = require('gulp-csslint');
 const noop       = require('gulp-noop');
+const sass       = require('gulp-sass');
+sass.compiler    = require('node-sass');
 
 // CONFIGURATION
 const CFG = {
@@ -25,6 +27,7 @@ const CFG = {
     CSS: {
         MINIFY: true,
         AUTOPREFIX: true,
+        SASS: false,
         LINT: {
             'box-model' : false,
             'adjoining-classes' : false,
@@ -55,6 +58,7 @@ const CFG = {
         VENDOR_JS: "./src/vendor/**/*.js",
         VENDOR_CSS: "./src/vendor/**/*.css",
         APP_JS: "./src/app/**/*.js",
+        APP_SCSS: "./src/app/**/*.scss",
         APP_CSS: "./src/app/**/*.css",
     },
 
@@ -64,7 +68,6 @@ const CFG = {
         VENDOR_MIN_CSS: "vendor.min.css",
         APP_MIN_JS: "app.min.js",
         APP_MIN_CSS: "app.min.css",
-
     },
 
     BROWSERS: [
@@ -84,6 +87,7 @@ const CFG = {
 
         BUILD_APP: 'build-app',
         BUILD_APP_JS: 'build-app-js',
+        BUILD_APP_SCSS: 'build-app-scss',
         BUILD_APP_CSS: 'build-app-css',
         LINT_APP_JS: 'lint-app-js',
         VALIDATE_APP_CSS: 'validate-app-css',
@@ -113,6 +117,24 @@ function processJS (src, target) {
         }) : noop())
         .pipe(CFG.JS.MINIFY ?
             uglify().on('error', (e) => {console.log(e);}) : noop())
+        .pipe(gulp.dest(CFG.OUT.MODULES));
+}
+
+/**
+ * Compile App SCSS
+ * @param src
+ * @param out
+ * @param target
+ * @returns {*}
+ */
+function processSCSS (src, target) {
+    return gulp.src(src)
+        .pipe(concat(target))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(CFG.CSS.MINIFY ? clean() : noop())
+        .pipe(CFG.CSS.AUTOPREFIX ? autoprefix({
+            browsers: CFG.BROWSERS
+        }) : noop())
         .pipe(gulp.dest(CFG.OUT.MODULES));
 }
 
@@ -175,6 +197,13 @@ function compileAppJS() {
 }
 
 /**
+ * Compile the app SCSS
+ */
+function compileAppSCSS() {
+    return processSCSS(CFG.SRC.APP_SCSS, CFG.OUT.APP_MIN_CSS);
+}
+
+/**
  * Compile the app CSS
  */
 function compileAppCSS() {
@@ -185,7 +214,8 @@ function compileAppCSS() {
  * Watch the APP and VENDOR source files for changes
  */
 function watchSourceFiles() {
-    gulp.watch([CFG.SRC.APP_JS, CFG.SRC.APP_CSS], exports[CFG.TASKS.BUILD_APP]);
+    let CSS_WATCHER = CFG.CSS.SASS ? CFG.SRC.APP_SCSS : CFG.SRC.APP_CSS;
+    gulp.watch([CFG.SRC.APP_JS, CSS_WATCHER], exports[CFG.TASKS.BUILD_APP]);
     gulp.watch([CFG.SRC.VENDOR_JS, CFG.SRC.VENDOR_CSS], exports[CFG.TASKS.BUILD_VENDOR]);
 }
 
@@ -201,6 +231,9 @@ exports[CFG.TASKS.VALIDATE_APP_CSS] = validateAppCSS;
 
 // BUILD APP JS
 exports[CFG.TASKS.BUILD_APP_JS] = compileAppJS;
+
+// BUILD APP SASS/SCSS
+exports[CFG.TASKS.BUILD_APP_SCSS] = compileAppSCSS;
 
 // BUILD APP CSS
 exports[CFG.TASKS.BUILD_APP_CSS] = compileAppCSS;
@@ -225,7 +258,9 @@ exports[CFG.TASKS.BUILD_APP] = gulp.parallel(
     exports[CFG.TASKS.LINT_APP_JS],
     exports[CFG.TASKS.VALIDATE_APP_CSS],
     exports[CFG.TASKS.BUILD_APP_JS],
-    exports[CFG.TASKS.BUILD_APP_CSS]
+    CFG.CSS.SASS
+        ? exports[CFG.TASKS.BUILD_APP_SCSS]
+        : exports[CFG.TASKS.BUILD_APP_CSS]
 );
 
 // BUILD ALL

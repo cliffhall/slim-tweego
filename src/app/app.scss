@@ -1,0 +1,21 @@
+/*
+
+Custom App SCSS
+
+To use SCSS instead of CSS:
+
+ 1) Add any number of .scss files in this folder, or just use this one
+ 2) In gulpfile.js, set CFG.CSS.SASS to true
+ 3) Files in this folder ending with .scss will be compiled and minified to project/modules/app.min.css
+ 4) Files in this folder ending with .css will be ignored
+
+*/
+$font-stack:   Helvetica, sans-serif;
+$primary-color: black;
+$bg-color: white;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  background: $bg-color;
+}

@@ -78,10 +78,10 @@ npm run watch:twee
 ```
 
 ## CHANGE DEFAULT STORY FORMAT
-The default story format is Harlowe 3. If you would like to change it, simply edit ```package.json``` and in the ```config``` section change the value of ```format```. Currently it looks like this:
+The default story format is SugarCube 2. If you would like to change it, simply edit ```package.json``` and in the ```config``` section change the value of ```format```. Currently it looks like this:
 ```
   "config": {
-    "format": "harlowe-3"
+    "format": "sugarcube-2"
   }
 ``` 
 
@@ -120,3 +120,12 @@ This is achieved with ```gulp``` as configured in ```gulpfile.js```. All of the 
 
 #### 2. Compile twee source and bundled styles and scripts from step 1.
 This is achieved with ```tweego``` as scripted in ```package.json``` in the ```scripts``` section. It compiles your ```.twee``` source code in ```project/twee``` and picks up any fonts you may have placed in the ```project/modules``` folder as well as minified app and/or vendor files that were left there by step 1. All this stuff -- fonts, transpiled/minified JS & CSS, and compiled TWEE -- are then baked into a single output file at ```dist/index.html```.
+
+### Hey, I'd like to use SASS/SCSS instead of CSS!
+I hear ya. Variables, amirite? Gotcha covered.
+
+By default the system is setup to use CSS, just because that's what most folks know.
+To change this, just edit ```gulpfile.js```, and change the variable ```CFG.CSS.SASS``` from ```false``` to ```true```.
+Now any ```.css``` files in ```src/app``` will be compiled to ```project/app.min.css``` and any ```.css``` files will be ignored - the opposite of what happens by default.
+
+NOTE: If you already ran the ```watch:gulp``` task, you'll need to stop it and start it again after making this change.

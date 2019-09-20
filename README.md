@@ -108,7 +108,6 @@ That said, a *lot* of changes have been made.
 ### Ok, so where does stuff go?
 * Media files that the project references (images, videos, sounds) should be placed directly into the ```dist/assets``` folder, as they are not handled at any stage in the build process.
 * Custom JavaScript and CSS goes in the ```src/app``` folder.
-* Assets go directly into the ```dist/assets``` folder. They aren't used anywhere else, so no need to move them around with compiler commands.
 * Third party JavaScript and CSS goes in the ```src/vendor``` folder. 
 * Custom fonts go in the ```project/modules``` folder and will end up being placed in the output file as raw data rather than files to be loaded.
 * Finally, Twee source files go in the ```project/twee``` folder.

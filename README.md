@@ -104,6 +104,7 @@ That said, a *lot* of changes have been made.
 * Folders have been moved around, renamed, or removed altogether in the interest of streamlining and clarity.
 * Configuration of gulp (previously ```config.json```) has been moved inside ```gulpfile.js```. Since it wasn't being used for anything else, there was no need to arbitrarily separate the two. 
 * Support is added to start gulp and tweego in watch mode, so you can just edit your ```.css```, ```.js```, and ```.twee``` files at will and it will automagically recompile everytime you save.
+* Configurable support for SASS/SCSS compilation instead of the default CSS. See below for instructions.
 
 ### Ok, so where does stuff go?
 * Media files that the project references (images, videos, sounds) should be placed directly into the ```dist/assets``` folder, as they are not handled at any stage in the build process.

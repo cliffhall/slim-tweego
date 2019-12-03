@@ -14,9 +14,11 @@ Production - Ready for prime time. Build the Twine game of your dreams!
 
 #### If Installing Tweego on Mac or Linux
 * Unzip distribution file in your home directory
-* Create a symbolic link to the executable: ```ln -s ~/tweego-2.0.0-macos-x86/tweego /usr/local/bin/tweego```
-* Create a symbolic link to the storyformats: ```ln -s ~/tweego-2.0.0-macos-x86/storyformats ~/.storyformats```
-
+* Assuming the unzipped folder was: `tweego-2.0.0-macos-x86`
+  - Create a symbolic link to the executable: ```ln -s ~/tweego-2.0.0-macos-x86/tweego /usr/local/bin/tweego```
+  - Create a symbolic link to the storyformats: ```ln -s ~/tweego-2.0.0-macos-x86/storyformats ~/.storyformats```
+* Adjust the folder name in the above two commands based on your actual distribution folder name.  
+ 
 ### Download the project
 * [Download the project](https://github.com/cliffhall/mars-colony/archive/master.zip) as a ```.zip``` file and unzip wherever you keep your projects.
 * OR if you have ```git``` installed on your system:

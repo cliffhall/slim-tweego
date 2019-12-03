@@ -112,6 +112,7 @@ That said, a *lot* of changes have been made.
 * Media files that the project references (images, videos, sounds) should be placed directly into the ```dist/assets``` folder, as they are not handled at any stage in the build process.
 * Custom JavaScript and CSS goes in the ```src/app``` folder.
 * Third party JavaScript and CSS goes in the ```src/vendor``` folder. 
+  - If available, use the *unminified* vendor source (e.g, `bootstrap.css` and `bootstrap.js` instead of `bootstrap.min.css` and `bootstrap.min.js`).
 * Custom fonts go in the ```project/modules``` folder and will end up being placed in the output file as raw data rather than files to be loaded.
 * Finally, Twee source files go in the ```project/twee``` folder.
 
@@ -129,6 +130,6 @@ I hear ya. Variables, amirite? Gotcha covered.
 
 By default the system is setup to use CSS, just because that's what most folks know.
 To change this, just edit ```gulpfile.js```, and change the variable ```CFG.CSS.SASS``` from ```false``` to ```true```.
-Now any ```.css``` files in ```src/app``` will be compiled to ```project/app.min.css``` and any ```.css``` files will be ignored - the opposite of what happens by default.
+Now any ```.scss``` files in ```src/app``` will be compiled to ```project/app.min.css``` and any ```.css``` files will be ignored - the opposite of what happens by default.
 
 NOTE: If you already ran the ```watch:gulp``` task, you'll need to stop it and start it again after making this change.
